@@ -1,0 +1,76 @@
+﻿@using GenDocSqlServer.Models
+<html>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+          crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    @foreach (TableInfo table in Model.Tables)
+                    {
+                        <li><a href="#@table.TableName">@table.TableName</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+                <h1>@Model.DatabaseName</h1>
+
+                @foreach (TableInfo table in Model.Tables)
+                {
+                    <h2 id="@table.TableName">@table.TableName</h2>
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Column Name</th>
+                                <th>Description</th>
+                                <th>InPrimaryKey</th>
+                                <th>IsForeignKey</th>
+                                <th>DataType</th>
+                                <th>Length</th>
+                                <th>Numeric Precision</th>
+                                <th>Numeric Scale</th>
+                                <th>Nullable</th>
+                                <th>Computed</th>
+                                <th>Identity</th>
+                                <th>Default Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (ColumnInfo column in table.Columns)
+                            {
+                                <tr>
+                                    <td>@column.ColumnName</td>
+                                    <td>@column.Description</td>
+                                    <td>@column.InPrimaryKey</td>
+                                    <td>@column.IsForeignKey</td>
+                                    <td>@column.DataType</td>
+                                    <td>@column.Length</td>
+                                    <td>@column.NumericPrecision</td>
+                                    <td>@column.NumericScale</td>
+                                    <td>@column.Nullable</td>
+                                    <td>@column.Computed</td>
+                                    <td>@column.Identity</td>
+                                    <td>@column.DefaultValue</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

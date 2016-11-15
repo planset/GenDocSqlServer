@@ -82,9 +82,9 @@
     </None>
     <None Include="css\style.scss" />
     <None Include="packages.config" />
-    <None Include="Templates\Index.cshtml">
+    <Content Include="Templates\Index.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

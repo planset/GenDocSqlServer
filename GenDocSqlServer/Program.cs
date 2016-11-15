@@ -47,12 +47,14 @@ namespace GenDocSqlServer
             //
             // build html
             //
-            var indexTemplate = File.ReadAllText(PathHelpers.GetAppDirFilePath("Templates\\Index.cshtml"));
+            var indexTemplate = File.ReadAllText(
+                PathHelpers.GetAppDirFilePath("Templates\\Index.cshtml")
+                );
             var indexHtml = RazorEngine.Engine.Razor.RunCompile(
                 indexTemplate, 
                 "index.html", 
                 null, 
-                new { DatabaseName = options.DatabaseName, Tables = tables }, 
+                new IndexViewModel { DatabaseName = options.DatabaseName, Tables = tables }, 
                 null
                 );
 
@@ -66,7 +68,8 @@ namespace GenDocSqlServer
 
             System.IO.File.Copy(PathHelpers.GetAppDirFilePath("css\\style.css"),
                 System.IO.Path.Combine(options.OutputDirectoryPath,"style.css"),
-                true);
+                true
+                );
 
                 Console.WriteLine("done.");
         }

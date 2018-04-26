@@ -69,3 +69,33 @@
 .main .page-header {
   margin-top: 0; }
 
+.table .column-name {
+  text-align: left; }
+
+.table .description {
+  text-align: left; }
+
+.table .in-primary-key {
+  text-align: center; }
+
+.table .is-foreign-key {
+  text-align: center; }
+
+.table .data-type {
+  text-align: left; }
+
+.table .length {
+  text-align: right; }
+
+.table .nullable {
+  text-align: center; }
+
+.table .computed {
+  text-align: center; }
+
+.table .identity {
+  text-align: center; }
+
+.table .default-value {
+  text-align: left; }
+

@@ -84,3 +84,47 @@
 .main .page-header {
     margin-top: 0;
 }
+
+.table {
+    .column-name {
+        text-align: left;
+    }
+
+    .description {
+        text-align: left;
+    }
+
+    .in-primary-key {
+        text-align: center;
+    }
+
+    .is-foreign-key {
+        text-align: center;
+    }
+
+    .data-type {
+        text-align: left;
+    }
+
+    .length {
+        text-align: right;
+    }
+
+
+    .nullable {
+        text-align: center;
+    }
+
+    .computed {
+        text-align: center;
+    }
+
+    .identity {
+        text-align: center;
+    }
+
+    .default-value {
+        text-align: left;
+    }
+
+}

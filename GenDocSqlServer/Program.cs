@@ -63,7 +63,8 @@ namespace GenDocSqlServer
             //
             File.WriteAllText(
                 System.IO.Path.Combine(options.OutputDirectoryPath, "index.html"),
-                indexHtml
+                indexHtml,
+                System.Text.Encoding.UTF8
                 );
 
             System.IO.File.Copy(PathHelpers.GetAppDirFilePath("css\\style.css"),

@@ -32,16 +32,16 @@
                             <tr>
                                 <th>Column Name</th>
                                 <th>Description</th>
-                                <th>InPrimaryKey</th>
-                                <th>IsForeignKey</th>
-                                <th>DataType</th>
-                                <th>Length</th>
-                                <th>Numeric Precision</th>
-                                <th>Numeric Scale</th>
+                                <th>PK</th>
+                                <th>FK</th>
+                                <th>Type</th>
+                                <th>Len</th>
+                                @*<th>Numeric Precision</th>
+                                <th>Numeric Scale</th>*@
                                 <th>Nullable</th>
-                                <th>Computed</th>
+                                @*<th>Computed</th>*@
                                 <th>Identity</th>
-                                <th>Default Value</th>
+                                <th>Default</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,18 +49,56 @@
                             @foreach (ColumnInfo column in table.Columns)
                             {
                                 <tr>
-                                    <td>@column.ColumnName</td>
-                                    <td>@column.Description</td>
-                                    <td>@column.InPrimaryKey</td>
-                                    <td>@column.IsForeignKey</td>
-                                    <td>@column.DataType</td>
-                                    <td>@column.Length</td>
-                                    <td>@column.NumericPrecision</td>
-                                    <td>@column.NumericScale</td>
-                                    <td>@column.Nullable</td>
-                                    <td>@column.Computed</td>
-                                    <td>@column.Identity</td>
-                                    <td>@column.DefaultValue</td>
+                                    <td class="column-name">@column.ColumnName</td>
+                                    <td class="description">@column.Description</td>
+                                    <td class="in-primary-key">
+                                        @if (column.InPrimaryKey != "0")
+                                        {
+                                            <text>@column.InPrimaryKey</text>
+                                        }
+                                    </td>
+                                    <td class="is-foreign-key">
+                                        @if (column.IsForeignKey != "0")
+                                        {
+                                            <text>@column.IsForeignKey</text>
+                                        }
+                                    </td>
+                                    <td class="data-type">@column.DataType</td>
+                                    <td class="length">
+                                        @if(column.DataType == "decimal" || column.DataType == "numeric")
+                                        {
+                                            <text>@column.NumericPrecision, @column.NumericScale</text>
+                                        }
+                                        else
+                                        {
+                                            <text>@column.Length</text>
+                                        }
+                                    </td>
+                                    @*<td class="numeric-precision">@column.NumericPrecision</td>
+                                    <td class="numeric-scale">@column.NumericScale</td>*@
+                                    <td class="nullable">
+                                        @if (column.Nullable == "1")
+                                        {
+                                            <text>NULL</text>
+                                        }
+                                        @*else
+                                        {
+                                            <text>NOT NULL</text>
+                                        }*@
+                                    </td>
+                                    @*<td class="computed">
+                                        @if (column.Computed != "0")
+                                        {
+                                            <text>@column.Computed</text>
+                                        }
+                                    </td>*@
+                                    <td class="identity">
+                                        @if (column.Identity != "0")
+                                        {
+                                            <text>@column.Identity</text>
+                                        }
+                                    </td>
+                                    <td class="default-value">@column.DefaultValue</td>
                                 </tr>
                             }
 

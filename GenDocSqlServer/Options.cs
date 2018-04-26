@@ -22,7 +22,7 @@ namespace GenDocSqlServer
           HelpText = "Directory path.")]
         public string OutputDirectoryPath { get; set; }
 
-        [Option('d', "Database", Required = true,
+        [Option('d', "Database", Required = false,
           HelpText = "Database name.")]
         public string DatabaseName { get; set; }
     }

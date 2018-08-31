@@ -129,10 +129,10 @@ namespace GenDocSqlServer
             {
                 var currentDir = System.IO.Directory.GetCurrentDirectory();
                 options.OutputDirectoryPath = System.IO.Path.Combine(currentDir, options.DatabaseName);
-                if (!System.IO.Directory.Exists(options.OutputDirectoryPath))
-                {
-                    System.IO.Directory.CreateDirectory(options.OutputDirectoryPath);
-                }
+            }
+            if (!System.IO.Directory.Exists(options.OutputDirectoryPath))
+            {
+                System.IO.Directory.CreateDirectory(options.OutputDirectoryPath);
             }
 
             GenerateHtml(options);

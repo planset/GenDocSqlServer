@@ -9,6 +9,7 @@ namespace GenDocSqlServer.Models
     public class TableInfo
     {
         public string TableName { get; set; }
+        public string Description { get; set; }
 
         public IEnumerable<ColumnInfo> Columns { get; set; }
     }

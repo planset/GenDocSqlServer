@@ -47,9 +47,15 @@ namespace GenDocSqlServer.DbInfo
             {
 
                 var tables = db.Database.SqlQuery<TableInfo>(@"
-Select distinct Table_name as TableName
-FROM INFORMATION_SCHEMA.COLUMNS
-order by Table_name
+SELECT 
+	tbl.name AS TableName,
+    ISNULL(exprop.value, '') AS Description
+FROM sys.tables AS tbl
+    LEFT OUTER JOIN sys.extended_properties exprop 
+		ON exprop.major_id = tbl.object_id
+		And exprop.minor_id = 0
+        AND exprop.name = 'MS_Description'
+ORDER BY tbl.name
 ").ToList();
                 foreach (var table in tables)
                 {

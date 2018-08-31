@@ -16,7 +16,15 @@
                 <ul class="nav nav-sidebar">
                     @foreach (TableInfo table in Model.Tables)
                     {
-                        <li><a href="#@table.TableName">@table.TableName</a></li>
+                        <li>
+                            <a href="#@table.TableName">
+                                @table.TableName
+                                @if (!string.IsNullOrEmpty(table.Description))
+                                {
+                                    <span>( @table.Description )</span>
+                                }
+                            </a>
+                        </li>
                     }
                 </ul>
             </div>
